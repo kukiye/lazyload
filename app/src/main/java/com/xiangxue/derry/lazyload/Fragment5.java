@@ -10,9 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.xiangxue.derry.lazyload.base.LazyFragment2;
-import com.xiangxue.derry.lazyload.base.LazyFragment3;
-import com.xiangxue.derry.lazyload.base.LazyFragment4;
 import com.xiangxue.derry.lazyload.base.LazyFragment5;
 
 public class Fragment5 extends LazyFragment5 {

@@ -14,9 +14,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.xiangxue.derry.lazyload.base.LazyFragment2;
-import com.xiangxue.derry.lazyload.base.LazyFragment3;
-import com.xiangxue.derry.lazyload.base.LazyFragment4;
 import com.xiangxue.derry.lazyload.base.LazyFragment5;
 
 // T1  T2 T3 T4 T5 有他呈现的Fragment

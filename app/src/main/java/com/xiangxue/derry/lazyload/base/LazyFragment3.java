@@ -12,7 +12,8 @@ import com.xiangxue.derry.lazyload.FragmentDelegater;
 
 /**
  * BaseFragment
- * TODO 第三版
+ * TODO 第三版: 修复重复更新加载的问题
+ *  记录上一次可见的状态: && isVisibleStateUP
  */
 public abstract class LazyFragment3 extends Fragment {
 

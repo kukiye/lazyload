@@ -12,7 +12,7 @@ import com.xiangxue.derry.lazyload.FragmentDelegater;
 
 /**
  * BaseFragment
- *  TODO 第二版
+ *  TODO 第二版：解决第一次一直初始化loading一直显示的问题
  */
 public abstract class LazyFragment2 extends Fragment {
 

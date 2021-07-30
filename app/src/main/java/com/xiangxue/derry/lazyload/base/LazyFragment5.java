@@ -15,7 +15,8 @@ import java.util.List;
 
 /**
  * BaseFragment
- *  TODO 第五版
+ *  TODO 第五版：修复第一个Fragment可见之后，第二个Fragment的子Fragment更新数据的问题
+ *  解决：第二个Fragment的子Fragment判断他的父Fragment是否可见
  */
 public abstract class LazyFragment5 extends Fragment {
 
@@ -68,7 +69,7 @@ public abstract class LazyFragment5 extends Fragment {
         // 记录上一次可见的状态 实时更新状态
         this.isVisibleStateUP = visibleState;
 
-        // TODO 为了解决第一个问题
+        // TODO 为了解决第一个问题：第一个Fragment可见之后，第二个Fragment的子Fragment更新数据的问题
         if (visibleState && isParentInvisible()) {
             return;
         }

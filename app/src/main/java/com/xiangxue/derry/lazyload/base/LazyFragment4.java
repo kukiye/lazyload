@@ -12,7 +12,8 @@ import com.xiangxue.derry.lazyload.FragmentDelegater;
 
 /**
  * BaseFragment
- *  TODO 第四版
+ * TODO 第四版：处理从Fragment跳转到其他的Activity后和回退重显的懒加载问题
+ *  修改onResume 和 onPause
  */
 public abstract class LazyFragment4 extends Fragment {
 
@@ -26,9 +27,9 @@ public abstract class LazyFragment4 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         E("onCreateView: ");
         if (rootView == null) {
-            rootView = inflater.inflate(getLayoutRes(),container, false);
+            rootView = inflater.inflate(getLayoutRes(), container, false);
         }
-        isViewCreated  = true; // 解决奔溃1.1
+        isViewCreated = true; // 解决奔溃1.1
         initView(rootView); // 初始化控件 findvxxx
 
         // 解决第一次一直初始化loading一直显示的问题 【第二版2.1】
@@ -52,7 +53,7 @@ public abstract class LazyFragment4 extends Fragment {
 
             if (isVisibleToUser && !isVisibleStateUP) {
                 dispatchUserVisibleHint(true);
-            } else if (!isVisibleToUser && isVisibleStateUP){
+            } else if (!isVisibleToUser && isVisibleStateUP) {
                 dispatchUserVisibleHint(false);
             }
 
@@ -75,18 +76,9 @@ public abstract class LazyFragment4 extends Fragment {
     }
 
 
-
-
-
-
-
-
-
-
-
-
     // 让子类完成，初始化布局，初始化控件
     protected abstract void initView(View rootView);
+
     protected abstract int getLayoutRes();
 
     // -->>>停止网络数据请求
@@ -131,7 +123,8 @@ public abstract class LazyFragment4 extends Fragment {
     public void setFragmentDelegater(FragmentDelegater fragmentDelegater) {
         mFragmentDelegater = fragmentDelegater;
     }
-    private void E(String  string) {
+
+    private void E(String string) {
         if (mFragmentDelegater != null) {
             mFragmentDelegater.dumpLifeCycle(string);
         }
